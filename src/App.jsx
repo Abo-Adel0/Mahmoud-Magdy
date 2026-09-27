@@ -10,25 +10,156 @@ const sections = [
   ["Impact", "impact"], ["Contact", "contact"],
 ];
 
-const navSections = [
-  ["Home", "home"], ["About", "about"], ["Journey", "journey"], ["Falcons", "falcons"],
-  ["Values", "values"], ["Different", "different"], ["Events", "events"], ["Impact", "impact"],
-  ["Media", "media"], ["Contact", "contact"],
-];
+const NAV = {
+  en: [
+    ["Home", "home"], ["About", "about"], ["Journey", "journey"], ["Falcons", "falcons"],
+    ["Values", "values"], ["Different", "different"], ["Events", "events"], ["Impact", "impact"],
+    ["Media", "media"], ["Contact", "contact"],
+  ],
+  ar: [
+    ["الرئيسية", "home"], ["عن محمود", "about"], ["الرحلة", "journey"], ["فالكونز", "falcons"],
+    ["المبادئ", "values"], ["التقنية", "different"], ["الفعاليات", "events"], ["الأثر", "impact"],
+    ["الصور", "media"], ["تواصل", "contact"],
+  ],
+};
 
-const journey = [
-  ["01", "The Beginning", "beginning", "The first steps were built around curiosity, learning, discipline and a clear ambition to understand the markets."],
-  ["02", "Trading Journey", "trading", "Experience grew through study, practice and learning how to approach the market with structure and patience."],
-  ["03", "Education & Mentorship", "education", "Knowledge became a mission: explain, simplify and help other learners build stronger foundations."],
-  ["04", "Falcons Organization", "falcons", "A personal vision grew into a wider platform focused on education, community and leadership."],
-  ["05", "Building a Community", "community", "More than traders — a community connected by learning, ambition, responsibility and continuous growth."],
-];
+const COPY = {
+  en: {
+    eyebrow: "MAHMOUD MAGDY",
+    role: "A journey built over 5+ years of learning, experience and real work.",
+    heroTag: <>Learn the market.<br/><strong>Build your mindset. Keep growing.</strong></>,
+    discover: "Discover My Journey",
+    live: "Live Demo — Falcons ↗",
+    scroll: "SCROLL TO EXPLORE",
+    aboutEyebrow: "ABOUT MAHMOUD MAGDY",
+    aboutTitle: <>A JOURNEY BUILT<br/><span>STEP BY STEP</span></>,
+    aboutP1: "More than five years ago, Mahmoud Magdy started his journey in the markets with the same questions every beginner has: how does the market really move, how do you deal with pressure, and how do you turn information into a clear decision?",
+    aboutP2: "With time, learning turned into experience, and experience turned into something bigger than a personal journey. Mahmoud began sharing what he had learned, helping traders understand the market with more clarity, patience and discipline. That is the idea behind Falcons — a place where learning does not stop at a lesson, but continues through practice, discussion and people learning from one another.",
+    quote: "I don't see trading as a shortcut to a result. I see it as a long journey where every stage teaches you something new. My goal is to share what I learned, keep learning with the people around me, and build an environment where progress is something we work on every day.",
+    quoteName: "— MAHMOUD MAGDY",
+    journeyEyebrow: "THE JOURNEY",
+    journeyTitle: <>MORE THAN<br/><span>FIVE YEARS OF LEARNING</span></>,
+    journeyIntro: "Five years can sound like a number. For Mahmoud, it is a collection of lessons, difficult moments, decisions, and experiences that shaped the way he thinks and works today.",
+    falconsEyebrow: "THE FALCONS JOURNEY",
+    falconsTitle: <>FROM ONE JOURNEY<br/><span>TO A COMMUNITY</span></>,
+    falconsText: "Falcons grew from a personal passion for learning into a wider community. The idea is simple: give people a place to learn, ask questions, practice what they understand and keep moving forward without pretending there is a shortcut.",
+    visit: "Visit Falcons ↗",
+    open: "Open Falcons Website ↗",
+    valuesEyebrow: "WHAT MATTERS TO MAHMOUD",
+    valuesTitle: <>THE THINGS THAT<br/><span>MAKE THE DIFFERENCE</span></>,
+    differentEyebrow: "TECHNOLOGY & IDEAS",
+    differentTitle: <>WHEN EXPERIENCE<br/><span>MEETS TECHNOLOGY</span></>,
+    differentP1: "For Mahmoud, technology is not there just to look impressive. It is useful when it saves time, organizes information and makes a complicated process easier to understand.",
+    differentP2: "That is why he works on custom bots, AI-based tools and internal systems for the Falcons ecosystem — tools designed to support the work behind the scenes while keeping the important decisions human, thoughtful and responsible.",
+    eventsEyebrow: "EVENTS & MOMENTS",
+    eventsTitle: <>THE PEOPLE<br/><span>BEHIND THE STORY</span></>,
+    eventsIntro: "From packed halls to outdoor activities, these are some of the moments that show the people, energy and community behind the Falcons journey.",
+    impactEyebrow: "THE NUMBERS",
+    impactTitle: <>FIVE YEARS OF WORK,<br/><span>IN NUMBERS</span></>,
+    impactIntro: "Numbers that give a quick look at the scale of the journey and the community built around it.",
+    mediaEyebrow: "BEHIND THE SCENES",
+    mediaTitle: <>THE MOMENTS<br/><span>YOU DON'T ALWAYS SEE</span></>,
+    mediaIntro: "Training days, events, trips and the small moments in between — a moving look at the people and experiences behind the brand.",
+    contactEyebrow: "STAY CONNECTED",
+    contactTitle: <>THE JOURNEY<br/><span>KEEPS GOING.</span></>,
+    contactText: "Follow Mahmoud Magdy, explore his journey and take a closer look at the work and community behind Falcons.",
+    instagram: "Follow on Instagram ↗",
+    whatsapp: "Contact on WhatsApp",
+    footerText: "A personal website telling the story behind the journey, the work and the community that grew with it.",
+    footerRole: "Mahmoud Magdy · Falcons Organization",
+    developed: "Developed by",
+  },
+  ar: {
+    eyebrow: "محمود مجدي",
+    role: "رحلة بدأت من أكتر من 5 سنين، واتشكلت بالعلم والتجربة والشغل الحقيقي.",
+    heroTag: <>افهم السوق.<br/><strong>ابني عقليتك.. وخليك دايمًا بتتطور.</strong></>,
+    discover: "اكتشف رحلتي",
+    live: "موقع Falcons ↗",
+    scroll: "اكتشف المزيد",
+    aboutEyebrow: "عن محمود مجدي",
+    aboutTitle: <>رحلة اتبنت<br/><span>خطوة بخطوة</span></>,
+    aboutP1: "من أكتر من خمس سنين، بدأ محمود مجدي رحلته في عالم الأسواق بنفس الأسئلة اللي بتيجي لأي حد بيبدأ: السوق بيتحرك ليه؟ إزاي أتعامل مع الضغط؟ وإزاي أحوّل كل اللي بتعلمه لقرار واضح ومدروس؟",
+    aboutP2: "مع الوقت، التعلم اتحول لخبرة، والخبرة اتحولت لحاجة أكبر من مجرد رحلة شخصية. محمود بدأ يشارك اللي اتعلمه مع غيره، ويساعد متداولين يفهموا السوق بشكل أوضح، ويتعاملوا معاه بصبر وانضباط. ومن هنا بدأت فكرة Falcons: مكان التعلم فيه مش بيقف عند درس أو معلومة، لكن بيكمل بالتجربة، والنقاش، والناس اللي بتتعلم من بعض.",
+    quote: "أنا مش شايف التداول طريق مختصر لنتيجة سريعة. أنا شايفه رحلة طويلة، وكل مرحلة فيها بتعلمك حاجة جديدة. هدفي إني أشارك اللي اتعلمته، وأفضل أتعلم مع الناس اللي حواليا، ونبني مع بعض بيئة يكون التطور فيها شغل يومي مش مجرد كلام.",
+    quoteName: "— محمود مجدي",
+    journeyEyebrow: "الرحلة",
+    journeyTitle: <>أكتر من<br/><span>5 سنين من التعلم</span></>,
+    journeyIntro: "خمس سنين ممكن تبان مجرد رقم، لكن بالنسبة لمحمود هي سنين من الدروس، والتجارب، والقرارات، والمواقف اللي شكلت طريقته في التفكير والشغل لحد النهارده.",
+    falconsEyebrow: "رحلتي مع Falcons",
+    falconsTitle: <>من رحلة شخصية<br/><span>إلى مجتمع كامل</span></>,
+    falconsText: "Falcons بدأت من شغف شخصي بالتعلم، ومع الوقت كبرت وبقت مجتمع أوسع. الفكرة ببساطة إن يكون فيه مكان تتعلم فيه، تسأل، تطبق اللي فهمته، وتكمل طريقك من غير ما حد يوهمك إن فيه طريق مختصر.",
+    visit: "زيارة Falcons ↗",
+    open: "فتح موقع Falcons ↗",
+    valuesEyebrow: "الحاجات اللي بتفرق مع محمود",
+    valuesTitle: <>مش بس تداول...<br/><span>دي طريقة تفكير</span></>,
+    differentEyebrow: "التقنية والأفكار",
+    differentTitle: <>لما الخبرة<br/><span>تقابل التكنولوجيا</span></>,
+    differentP1: "بالنسبة لمحمود، التكنولوجيا مش مجرد شكل حلو أو حاجة نضيفها للموقع وخلاص. قيمتها الحقيقية لما توفر وقت، ترتب المعلومات، وتسهّل حاجة كانت معقدة.",
+    differentP2: "وعشان كده بيشتغل على Bots وأدوات مبنية على الذكاء الاصطناعي وأنظمة داخلية تساعد شغل Falcons من ورا الكواليس؛ أدوات هدفها تخلي الشغل أرتب وأسرع، مع بقاء القرارات المهمة محتاجة تفكير ومسؤولية من الإنسان نفسه.",
+    eventsEyebrow: "الفعاليات واللحظات",
+    eventsTitle: <>الناس اللي<br/><span>ورا الحكاية</span></>,
+    eventsIntro: "من القاعات المليانة بالناس لحد الأنشطة والرحلات، دي مجموعة من اللحظات اللي بتوضح الطاقة والناس والمجتمع اللي اتبنى حوالين Falcons.",
+    impactEyebrow: "الأرقام",
+    impactTitle: <>5 سنين من الشغل،<br/><span>تحكيهم الأرقام</span></>,
+    impactIntro: "أرقام بتديك صورة سريعة عن حجم الرحلة والمجتمع اللي اتبنى على مدار السنين.",
+    mediaEyebrow: "خلف الكواليس",
+    mediaTitle: <>لحظات<br/><span>مش دايمًا بتشوفها</span></>,
+    mediaIntro: "أيام تدريب، فعاليات، رحلات، ولحظات بسيطة في النص — شريط متحرك من الصور اللي بتحكي جزء من الحكاية بعيدًا عن الصورة الرسمية.",
+    contactEyebrow: "خليك قريب",
+    contactTitle: <>الرحلة<br/><span>لسه مكملة.</span></>,
+    contactText: "تابع محمود مجدي، شوف تفاصيل رحلته، واقرب أكتر من الشغل والمجتمع اللي اتبنى حوالين Falcons.",
+    instagram: "تابع على Instagram ↗",
+    whatsapp: "تواصل عبر WhatsApp",
+    footerText: "موقع شخصي بيحكي الرحلة، الشغل، والمجتمع اللي كبر معاها خطوة بخطوة.",
+    footerRole: "محمود مجدي · Falcons Organization",
+    developed: "تطوير",
+  },
+};
 
-const values = [
-  ["01", "Education", "Knowledge first. Practical learning built around understanding, not shortcuts."],
-  ["02", "Discipline", "A structured mindset, consistency and patience are part of the process."],
-  ["03", "Risk Management", "Respect the risk before thinking about the reward."],
-  ["04", "Leadership", "Build people, confidence and a stronger community around shared goals."],
+const JOURNEY = {
+  en: [
+    ["01", "The Beginning", "beginning", "It started with curiosity: learning how markets move, asking better questions and realizing that understanding takes time."],
+    ["02", "Five Years of Experience", "trading", "Five years of learning and practice shaped a calmer, more thoughtful way of looking at the market and its challenges."],
+    ["03", "Sharing What I Learned", "education", "What began as personal learning gradually became something to share — breaking down difficult ideas and helping others build their own foundation."],
+    ["04", "The Falcons Chapter", "falcons", "The personal journey grew into Falcons, where education, community and real experiences could live in the same place."],
+    ["05", "A Journey That Keeps Moving", "community", "There is no final page. The next part is built through people, new experiences, better questions and the willingness to keep learning."],
+  ],
+  ar: [
+    ["01", "البداية", "beginning", "البداية كانت فضول ورغبة في الفهم: السوق بيتحرك إزاي؟ وإيه اللي بيخلي القرار صح أو غلط؟ ومع الوقت بدأ الفهم ياخد مكان التوقعات السريعة."],
+    ["02", "أكتر من 5 سنين", "trading", "خمس سنين من التعلم والتجربة خلّوا النظرة للسوق أهدى وأعمق، وخلّوا كل تجربة درس يستاهل يتراجع ويتفهم."],
+    ["03", "مشاركة اللي اتعلمته", "education", "اللي بدأ كتعلّم شخصي اتحول مع الوقت لحاجة تستاهل تتشارك؛ تبسيط الأفكار، ومساعدة غيري يبنوا أساسهم بنفسهم."],
+    ["04", "فصل Falcons", "falcons", "الرحلة الشخصية كبرت وبقت Falcons، مكان يجمع التعليم والتجربة والناس اللي عندها نفس الرغبة في التطور."],
+    ["05", "والرحلة لسه مكملة", "community", "مفيش صفحة أخيرة للحكاية؛ كل مرحلة جديدة بتتبني من ناس جديدة، وتجارب جديدة، وأسئلة أحسن، ورغبة مستمرة في التعلم."],
+  ],
+};
+
+const VALUES = {
+  en: [
+    ["01", "Keep Learning", "Markets change, people change, and experience keeps teaching. Staying curious matters more than pretending you know everything."],
+    ["02", "Stay Disciplined", "A good idea means little without the discipline to follow a clear process when pressure starts to rise."],
+    ["03", "Understand the Risk", "Before looking at what can be gained, understand what can go wrong. Clear thinking starts there."],
+    ["04", "Grow Together", "The right environment makes learning easier. Questions, conversations and shared experience can move a person forward."],
+  ],
+  ar: [
+    ["01", "التعلم المستمر", "السوق بيتغير، والناس بتتغير، والخبرة نفسها بتفضل تعلمنا. المهم تفضل عندك رغبة تفهم أكتر، مش إنك تتعامل كإنك عارف كل حاجة."],
+    ["02", "الانضباط", "الفكرة الحلوة لوحدها مش كفاية. الفرق الحقيقي بيظهر لما تقدر تلتزم بطريقتك حتى وقت الضغط والحماس والتوتر."],
+    ["03", "فهم المخاطر", "قبل ما تفكر في المكسب، لازم تكون فاهم إيه اللي ممكن يحصل لو الأمور مشت عكس توقعك. الوضوح بيبدأ من هنا."],
+    ["04", "نتطور مع بعض", "البيئة الصح بتفرق. سؤال، نقاش، أو تجربة شخص تاني ممكن يختصر عليك وقت كبير، وده جزء مهم من أي رحلة تعلم."],
+  ],
+};
+
+const NEW_GALLERY = Array.from({ length: 18 }, (_, i) => {
+  const n = i + 6;
+  return { src: `/images/gallery/${String(i + 1).padStart(2, "0")}.webp`, n: String(n).padStart(2, "0") };
+});
+
+const FEATURE_GALLERY = [
+  { src: "/images/gallery/01.webp", n: "06" },
+  { src: "/images/gallery/04.webp", n: "09" },
+  { src: "/images/gallery/07.webp", n: "12" },
+  { src: "/images/gallery/08.webp", n: "13" },
+  { src: "/images/gallery/12.webp", n: "17" },
+  { src: "/images/gallery/18.webp", n: "23" },
 ];
 
 function Counter({ end, suffix = "+" }) {
@@ -124,6 +255,11 @@ function MouseEffects({ onMove }) {
 
 function App() {
   const [menu, setMenu] = useState(false);
+  const [lang, setLang] = useState(() => localStorage.getItem("mahmoud-lang") || "ar");
+  const copy = COPY[lang];
+  const journeyItems = JOURNEY[lang];
+  const valueItems = VALUES[lang];
+  const navItems = NAV[lang];
   const [light, setLight] = useState(false);
   const [active, setActive] = useState("home");
   const [scrolled, setScrolled] = useState(false);
@@ -143,6 +279,13 @@ function App() {
     }, 2400);
     return () => window.clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    document.body.dir = lang === "ar" ? "rtl" : "ltr";
+    localStorage.setItem("mahmoud-lang", lang);
+  }, [lang]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -186,7 +329,7 @@ function App() {
 
 
   return (
-    <div className={`site ${light ? "light-theme" : ""}`}>
+    <div className={`site ${light ? "light-theme" : ""} ${lang === "ar" ? "rtl" : "ltr"}`} dir={lang === "ar" ? "rtl" : "ltr"}>
       <MouseEffects />
 
       <header className={`nav ${scrolled ? "nav-scrolled" : ""}`}>
@@ -196,26 +339,25 @@ function App() {
         </button>
 
         <nav className={`nav-links ${menu ? "open" : ""}`}>
-          {navSections.map(([label, id]) => (
+          {navItems.map(([label, id]) => (
             <button key={id} className={active === id ? "active" : ""} onClick={() => go(id)}>{label}</button>
           ))}
         </nav>
 
         <div className="nav-actions">
+          <button className="language-toggle" onClick={() => setLang(v => v === "ar" ? "en" : "ar")} aria-label={lang === "ar" ? "Switch to English" : "التبديل إلى العربية"}>
+            <span>EN</span><i></i><b>ع</b>
+          </button>
           <button className={`theme-toggle ${light ? "is-light" : "is-dark"}`} onClick={() => setLight(v => !v)} aria-label={light ? "Switch to dark theme" : "Switch to light theme"}>
             <span className="theme-icon sun">☀</span><i></i><span className="theme-icon moon">☾</span>
           </button>
-          <button className="gold-btn small" onClick={() => go("contact")}>Contact</button>
+          <button className="gold-btn small" onClick={() => go("contact")}>{lang === "ar" ? "تواصل" : "Contact"}</button>
         </div>
         <button className="hamburger" onClick={() => setMenu(v => !v)} aria-label="Menu"><span/><span/><span/></button>
       </header>
 
       <aside className="side-dots" aria-label="Section navigation">
-        {[
-          ["Home","home"], ["About","about"], ["Journey","journey"], ["Falcons","falcons"],
-          ["Values","values"], ["Different","different"], ["Events","events"], ["Impact","impact"],
-          ["Media","media"], ["Contact","contact"]
-        ].map(([label, id], i) => (
+        {navItems.map(([label, id], i) => (
           <button key={id} className={active === id ? "active" : ""} onClick={() => go(id)} aria-label={label}>
             <small>{String(i + 1).padStart(2, "0")}</small><span /><b>{label}</b>
           </button>
@@ -227,13 +369,13 @@ function App() {
           <div className="hero-static-bg" aria-hidden="true"><img src="/images/hero-market-bg.png" alt="" /></div>
           <div className="hero-vignette" />
           <div className="hero-copy reveal">
-            <p className="eyebrow">COACH • FOUNDER • MENTOR</p>
+            <p className="eyebrow">{copy.eyebrow}</p>
             <h1>MAHMOUD<br/><span>MAGDY</span></h1>
-            <p className="role">Founder & CEO of Falcons Organization</p>
-            <p className="tagline">Building Traders.<br/><strong>Building Leaders.</strong></p>
+            <p className="role">{copy.role}</p>
+            <p className="tagline">{copy.heroTag}</p>
             <div className="hero-buttons">
-              <button className="gold-btn" onClick={() => go("journey")}>Discover My Journey <b>→</b></button>
-              <button className="outline-btn" onClick={() => go("falcons")}>Live Demo — Falcons ↗</button>
+              <button className="gold-btn" onClick={() => go("journey")}>{copy.discover} <b>→</b></button>
+              <button className="outline-btn" onClick={() => go("falcons")}>{copy.live}</button>
             </div>
           </div>
 
@@ -242,40 +384,40 @@ function App() {
             <img src="/images/hero.png" alt="Mahmoud Magdy" />
             <div className="signature"><span>Mahmoud</span> Magdy</div>
           </div>
-          <div className="hero-bottom">SCROLL TO EXPLORE <span>↓</span></div>
+          <div className="hero-bottom">{copy.scroll} <span>↓</span></div>
         </section>
 
         <section id="about" className="section about reveal-section">
-          <div className="about-image reveal"><img src="/images/training.jpg" alt="Mahmoud Magdy training session"/><span className="image-label">THE EARLY JOURNEY</span></div>
-          <div className="about-copy reveal"><p className="eyebrow">ABOUT MAHMOUD MAGDY</p><h2>THE MAN BEHIND<br/><span>THE VISION</span></h2><p>Mahmoud Magdy is a trader, trainer and entrepreneur whose journey is centered around learning, experience and building people.</p><p>From the early stages of his journey to the creation of Falcons Organization, the focus has remained on education, discipline, practical development and community.</p><button className="text-btn" onClick={() => go("journey")}>Explore the story <span>→</span></button></div>
-          <aside className="quote reveal"><div className="quote-mark">“</div><p>Success is not just about the result. It is about the person you become along the way.</p><small>— MAHMOUD MAGDY</small><div className="roles"><span>◈ Trader</span><span>◆ Trainer</span><span>◇ Mentor</span><span>✦ Leader</span></div></aside>
+          <div className="about-image reveal"><img src="/images/training.jpg" alt="Mahmoud Magdy training session"/><span className="image-label">{lang === "ar" ? "بداية الرحلة" : "THE EARLY JOURNEY"}</span></div>
+          <div className="about-copy reveal"><p className="eyebrow">{copy.aboutEyebrow}</p><h2>{copy.aboutTitle}</h2><p>{copy.aboutP1}</p><p>{copy.aboutP2}</p><button className="text-btn" onClick={() => go("journey")}>{lang === "ar" ? "اكتشف القصة" : "Explore the story"} <span>→</span></button></div>
+          <aside className="quote reveal"><div className="quote-mark">“</div><p>{copy.quote}</p><small>{copy.quoteName}</small></aside>
         </section>
 
         <section id="journey" className="section journey reveal-section">
-          <div className="section-head reveal"><div><p className="eyebrow">THE JOURNEY</p><h2>A PATH BUILT ON<br/><span>LEARNING & EXPERIENCE</span></h2></div><p className="section-intro">A story that continues to grow — from learning the markets to building a community around education and purpose.</p></div>
-          <div className="timeline">{journey.map(([n,title,icon,text]) => <article className="journey-card reveal" key={n}><div className="journey-num">{n}</div><div className="journey-icon"><JourneyIcon type={icon}/></div><h3>{title}</h3><p>{text}</p></article>)}</div>
+          <div className="section-head reveal"><div><p className="eyebrow">{copy.journeyEyebrow}</p><h2>{copy.journeyTitle}</h2></div><p className="section-intro">{copy.journeyIntro}</p></div>
+          <div className="timeline">{journeyItems.map(([n,title,icon,text]) => <article className="journey-card reveal" key={n}><div className="journey-num">{n}</div><div className="journey-icon"><JourneyIcon type={icon}/></div><h3>{title}</h3><p>{text}</p></article>)}</div>
         </section>
 
         <section id="falcons" className="falcons section reveal-section">
           <div className="falcons-bg" />
-          <div className="falcons-copy reveal"><p className="eyebrow">THE FOUNDER OF FALCONS</p><h2>FROM A VISION<br/><span>TO FALCONS</span></h2><p>Falcons Organization is the platform founded by Mahmoud Magdy, bringing education, community and development together under one identity.</p><a className="gold-btn" href={FALCONS} target="_blank" rel="noreferrer">Visit Falcons ↗</a></div>
+          <div className="falcons-copy reveal"><p className="eyebrow">{copy.falconsEyebrow}</p><h2>{copy.falconsTitle}</h2><p>{copy.falconsText}</p><a className="gold-btn" href={FALCONS} target="_blank" rel="noreferrer">{copy.visit}</a></div>
           <a className="browser-card reveal" href={FALCONS} target="_blank" rel="noreferrer" aria-label="Open Falcons live demo">
             <div className="browser-top"><i/><i/><i/><span>falcons-organization.com</span><b>LIVE</b></div>
-            <div className="browser-screen"><img src="/images/falcons-preview.png" alt="Falcons Organization website preview"/><div className="live-overlay"><span>● LIVE DEMO</span><strong>Open Falcons Website ↗</strong></div></div>
+            <div className="browser-screen"><img src="/images/falcons-preview.png" alt="Falcons Organization website preview"/><div className="live-overlay"><span>● LIVE DEMO</span><strong>{copy.open}</strong></div></div>
           </a>
         </section>
 
         <section id="values" className="section values reveal-section">
-          <div className="section-head compact reveal"><div><p className="eyebrow">WHAT MAHMOUD STANDS FOR</p><h2>MORE THAN<br/><span>TRADING</span></h2></div></div>
-          <div className="values-grid">{values.map(([n,title,text]) => <article className="value-card reveal" key={n}><span>{n}</span><i>✦</i><h3>{title}</h3><p>{text}</p></article>)}</div>
+          <div className="section-head compact reveal"><div><p className="eyebrow">{copy.valuesEyebrow}</p><h2>{copy.valuesTitle}</h2></div></div>
+          <div className="values-grid">{valueItems.map(([n,title,text]) => <article className="value-card reveal" key={n}><span>{n}</span><i>✦</i><h3>{title}</h3><p>{text}</p></article>)}</div>
         </section>
 
         <section id="different" className="section different reveal-section">
           <div className="different-copy reveal">
-            <p className="eyebrow">MAHMOUD MAGDY — ALWAYS DIFFERENT</p>
-            <h2>TECHNOLOGY<br/><span>BEHIND THE VISION</span></h2>
-            <p>Mahmoud Magdy combines trading knowledge with technology, building custom bots, AI-powered tools and internal workflows for Falcons Organization.</p>
-            <p>These tools are designed to streamline market analysis, organize trading workflows and make the day-to-day process more efficient for the Falcons community — with technology supporting the trader, not replacing discipline and risk management.</p>
+            <p className="eyebrow">{copy.differentEyebrow}</p>
+            <h2>{copy.differentTitle}</h2>
+            <p>{copy.differentP1}</p>
+            <p>{copy.differentP2}</p>
             <div className="tech-pills"><span>AI TOOLS</span><span>TRADING BOTS</span><span>SMART WORKFLOWS</span></div>
           </div>
           <div className="robot-stage reveal">
@@ -298,32 +440,38 @@ function App() {
         </section>
 
         <section id="events" className="section events reveal-section">
-          <div className="section-head reveal"><div><p className="eyebrow">EVENTS & MOMENTS</p><h2>REAL PEOPLE.<br/><span>REAL IMPACT.</span></h2></div><p className="section-intro">Moments from training sessions, events and the community behind the journey.</p></div>
-          <div className="gallery"><figure className="gallery-main reveal"><img src="/images/event-1.jpg" alt="Mahmoud Magdy at an event"/><figcaption>Live Events</figcaption></figure><figure className="gallery-card reveal"><img src="/images/training.jpg" alt="Training session"/><figcaption>Training Sessions</figcaption></figure><figure className="gallery-card reveal"><img src="/images/event-2.jpg" alt="Community event"/><figcaption>Community Moments</figcaption></figure></div>
+          <div className="section-head reveal"><div><p className="eyebrow">{copy.eventsEyebrow}</p><h2>{copy.eventsTitle}</h2></div><p className="section-intro">{copy.eventsIntro}</p></div>
+          <div className="gallery gallery-new">{FEATURE_GALLERY.map((item, i) => <figure className={`gallery-card gallery-card-${i + 1} reveal`} key={item.src}><img src={item.src} alt={`Falcons moment ${item.n}`} loading={i > 1 ? "lazy" : "eager"}/><figcaption>{lang === "ar" ? `لحظة من الرحلة ${item.n}` : `Journey moment ${item.n}`}</figcaption></figure>)}</div>
         </section>
 
         <section id="impact" className="impact section reveal-section">
-          <div className="section-head compact reveal"><div><p className="eyebrow">OUR IMPACT</p><h2>NUMBERS TELL<br/><span>THE STORY</span></h2></div><p className="section-intro">Temporary launch figures — replace them with verified numbers when ready.</p></div>
-          <div className="stats"><div className="reveal"><Counter end={2000}/><span>Students</span></div><div className="reveal"><Counter end={1000}/><span>Events & Sessions</span></div><div className="reveal"><Counter end={800}/><span>Community Members</span></div><div className="reveal"><Counter end={15} suffix="+"/><span>Countries</span></div></div>
-        </section>
-
-        <section id="media" className="section media reveal-section">
-          <div className="section-head reveal"><div><p className="eyebrow">MEDIA & PRESENCE</p><h2>BEHIND THE<br/><span>SCENES</span></h2></div><p className="section-intro">A visual look at events, training and the people behind the Falcons journey.</p></div>
-          <div className="media-showcase">
-            <figure className="media-feature reveal"><img src="/images/event-1.jpg" alt="Mahmoud Magdy at a live event"/><figcaption><small>01</small><strong>Live Presence</strong></figcaption></figure>
-            <figure className="media-feature reveal"><img src="/images/training.jpg" alt="Mahmoud Magdy training"/><figcaption><small>02</small><strong>Education</strong></figcaption></figure>
-            <figure className="media-feature reveal"><img src="/images/event-2.jpg" alt="Falcons community event"/><figcaption><small>03</small><strong>Community</strong></figcaption></figure>
+          <div className="section-head compact reveal"><div><p className="eyebrow">{copy.impactEyebrow}</p><h2>{copy.impactTitle}</h2></div><p className="section-intro">{copy.impactIntro}</p></div>
+          <div className="stats">
+            <div className="reveal"><Counter end={5} suffix="+"/><span>{lang === "ar" ? "سنوات من الخبرة" : "Years of Experience"}</span></div>
+            <div className="reveal"><Counter end={12000} suffix="+"/><span>{lang === "ar" ? "عضو نشط" : "Active Members"}</span></div>
+            <div className="reveal"><Counter end={12000} suffix="+"/><span>{lang === "ar" ? "طالب تم تدريبه" : "Students Trained"}</span></div>
+            <div className="reveal"><Counter end={18} suffix=""/><span>{lang === "ar" ? "دولة" : "Countries"}</span></div>
+            <div className="reveal"><Counter end={95} suffix="%"/><span>{lang === "ar" ? "معدل الرضا" : "Satisfaction Rate"}</span></div>
           </div>
         </section>
 
-        <section id="contact" className="cta reveal-section"><img src="/images/event-1.jpg" alt=""/><div className="cta-overlay"/><div className="cta-content reveal"><p className="eyebrow">CONNECT WITH MAHMOUD</p><h2>THE JOURNEY<br/><span>DOESN'T END HERE.</span></h2><p>Follow Mahmoud Magdy and discover the vision behind Falcons.</p><div className="hero-buttons"><a className="gold-btn" href={INSTAGRAM} target="_blank" rel="noreferrer">Follow on Instagram ↗</a><a className="outline-btn" href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noreferrer">Contact on WhatsApp</a></div><div className="contact-socials"><a href={INSTAGRAM} target="_blank" rel="noreferrer"><b>◎</b><span>Instagram</span></a><a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noreferrer"><b>◔</b><span>WhatsApp</span></a><a href={FALCONS} target="_blank" rel="noreferrer"><b>𓅃</b><span>Falcons Organization</span></a></div></div></section>
+        <section id="media" className="section media reveal-section">
+          <div className="section-head reveal"><div><p className="eyebrow">{copy.mediaEyebrow}</p><h2>{copy.mediaTitle}</h2></div><p className="section-intro">{copy.mediaIntro}</p></div>
+          <div className="media-marquee" aria-label={lang === "ar" ? "صور من خلف الكواليس" : "Behind the scenes gallery"}>
+            <div className="media-track">
+              {[...NEW_GALLERY, ...NEW_GALLERY].map((item, i) => <figure className="media-tile" key={`${item.src}-${i}`}><img src={item.src} alt={lang === "ar" ? `صورة من رحلة Falcons ${item.n}` : `Falcons journey ${item.n}`} loading={i < 6 ? "eager" : "lazy"}/><figcaption><small>{item.n}</small><strong>{lang === "ar" ? "من الرحلة" : "From the journey"}</strong></figcaption></figure>)}
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="cta reveal-section"><img src="/images/event-1.jpg" alt=""/><div className="cta-overlay"/><div className="cta-content reveal"><p className="eyebrow">{copy.contactEyebrow}</p><h2>{copy.contactTitle}</h2><p>{copy.contactText}</p><div className="hero-buttons"><a className="gold-btn" href={INSTAGRAM} target="_blank" rel="noreferrer">{copy.instagram}</a><a className="outline-btn" href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noreferrer">{copy.whatsapp}</a></div><div className="contact-socials"><a href={INSTAGRAM} target="_blank" rel="noreferrer"><b>◎</b><span>Instagram</span></a><a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noreferrer"><b>◔</b><span>WhatsApp</span></a><a href={FALCONS} target="_blank" rel="noreferrer"><b>𓅃</b><span>Falcons Organization</span></a></div></div></section>
       </main>
 
       <footer>
-        <div className="footer-main"><div className="footer-brand"><span className="brand-mark">M</span><div><b>MAHMOUD MAGDY</b><small>Founder & CEO · Falcons Organization</small></div></div><p>A personal profile built around trading, education, leadership and the journey behind Falcons.</p></div>
-        <div className="footer-links">{sections.slice(0,7).map(([label,id]) => <button key={id} onClick={() => go(id)}>{label}</button>)}</div>
+        <div className="footer-main"><div className="footer-brand"><span className="brand-mark">M</span><div><b>MAHMOUD MAGDY</b><small>{copy.footerRole}</small></div></div><p>{copy.footerText}</p></div>
+        <div className="footer-links">{navItems.slice(0,7).map(([label,id]) => <button key={id} onClick={() => go(id)}>{label}</button>)}</div>
         <div className="footer-contact"><a href={FALCONS} target="_blank" rel="noreferrer">Falcons Organization ↗</a></div>
-        <div className="copyright"><span>© 2026 Mahmoud Magdy. All Rights Reserved.</span><span>Developed by <a className="developer-link" href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noreferrer"><b>Eng. Youssef Adel</b></a></span></div>
+        <div className="copyright"><span>© 2026 Mahmoud Magdy. All Rights Reserved.</span><span>{copy.developed} <a className="developer-link" href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noreferrer"><b>Eng. Youssef Adel</b></a></span></div>
       </footer>
     </div>
   );
