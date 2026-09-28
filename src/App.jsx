@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-const WHATSAPP = "201280522844";
+const WHATSAPP = "201065609174";
+const DEV_WHATSAPP = "201280522844";
 const INSTAGRAM = "https://www.instagram.com/mahmoud__magdy_111/";
 const FALCONS = "https://falcons-organization.com/";
 
@@ -54,18 +55,13 @@ const COPY = {
     eventsEyebrow: "EVENTS & MOMENTS",
     eventsTitle: <>THE PEOPLE<br/><span>BEHIND THE STORY</span></>,
     eventsIntro: "From packed halls to outdoor activities, these are some of the moments that show the people, energy and community behind the Falcons journey.",
-    impactEyebrow: "THE NUMBERS",
-    impactTitle: <>FIVE YEARS OF WORK,<br/><span>IN NUMBERS</span></>,
-    impactIntro: "Numbers that give a quick look at the scale of the journey and the community built around it.",
     mediaEyebrow: "BEHIND THE SCENES",
     mediaTitle: <>THE MOMENTS<br/><span>YOU DON'T ALWAYS SEE</span></>,
     mediaIntro: "Training days, events, trips and the small moments in between — a moving look at the people and experiences behind the brand.",
-    contactEyebrow: "STAY CONNECTED",
     contactTitle: <>THE JOURNEY<br/><span>KEEPS GOING.</span></>,
     contactText: "Follow Mahmoud Magdy, explore his journey and take a closer look at the work and community behind Falcons.",
     instagram: "Follow on Instagram ↗",
     whatsapp: "Contact on WhatsApp",
-    footerText: "A personal website telling the story behind the journey, the work and the community that grew with it.",
     footerRole: "Mahmoud Magdy · Falcons Organization",
     developed: "Developed by",
   },
@@ -99,18 +95,12 @@ const COPY = {
     eventsEyebrow: "الفعاليات واللحظات",
     eventsTitle: <>الناس اللي<br/><span>ورا الحكاية</span></>,
     eventsIntro: "من القاعات المليانة بالناس لحد الأنشطة والرحلات، دي مجموعة من اللحظات اللي بتوضح الطاقة والناس والمجتمع اللي اتبنى حوالين Falcons.",
-    impactEyebrow: "الأرقام",
-    impactTitle: <>5 سنين من الشغل،<br/><span>تحكيهم الأرقام</span></>,
-    impactIntro: "أرقام بتديك صورة سريعة عن حجم الرحلة والمجتمع اللي اتبنى على مدار السنين.",
     mediaEyebrow: "خلف الكواليس",
     mediaTitle: <>لحظات<br/><span>مش دايمًا بتشوفها</span></>,
-    mediaIntro: "أيام تدريب، فعاليات، رحلات، ولحظات بسيطة في النص — شريط متحرك من الصور اللي بتحكي جزء من الحكاية بعيدًا عن الصورة الرسمية.",
-    contactEyebrow: "خليك قريب",
     contactTitle: <>الرحلة<br/><span>لسه مكملة.</span></>,
     contactText: "تابع محمود مجدي، شوف تفاصيل رحلته، واقرب أكتر من الشغل والمجتمع اللي اتبنى حوالين Falcons.",
     instagram: "تابع على Instagram ↗",
     whatsapp: "تواصل عبر WhatsApp",
-    footerText: "موقع شخصي بيحكي الرحلة، الشغل، والمجتمع اللي كبر معاها خطوة بخطوة.",
     footerRole: "محمود مجدي · Falcons Organization",
     developed: "تطوير",
   },
@@ -441,7 +431,7 @@ function App() {
 
         <section id="events" className="section events reveal-section">
           <div className="section-head reveal"><div><p className="eyebrow">{copy.eventsEyebrow}</p><h2>{copy.eventsTitle}</h2></div><p className="section-intro">{copy.eventsIntro}</p></div>
-          <div className="gallery gallery-new">{FEATURE_GALLERY.map((item, i) => <figure className={`gallery-card gallery-card-${i + 1} reveal`} key={item.src}><img src={item.src} alt={`Falcons moment ${item.n}`} loading={i > 1 ? "lazy" : "eager"}/><figcaption>{lang === "ar" ? `لحظة من الرحلة ${item.n}` : `Journey moment ${item.n}`}</figcaption></figure>)}</div>
+          <div className="gallery gallery-new">{FEATURE_GALLERY.map((item, i) => <figure className={`gallery-card gallery-card-${i + 1} reveal`} key={item.src}><img src={item.src} alt={lang === "ar" ? "لحظة من رحلة Falcons" : "Falcons journey moment"} loading={i > 1 ? "lazy" : "eager"}/></figure>)}</div>
         </section>
 
         <section id="impact" className="impact section reveal-section">
@@ -458,8 +448,15 @@ function App() {
         <section id="media" className="section media reveal-section">
           <div className="section-head reveal"><div><p className="eyebrow">{copy.mediaEyebrow}</p><h2>{copy.mediaTitle}</h2></div><p className="section-intro">{copy.mediaIntro}</p></div>
           <div className="media-marquee" aria-label={lang === "ar" ? "صور من خلف الكواليس" : "Behind the scenes gallery"}>
-            <div className="media-track">
-              {[...NEW_GALLERY, ...NEW_GALLERY].map((item, i) => <figure className="media-tile" key={`${item.src}-${i}`}><img src={item.src} alt={lang === "ar" ? `صورة من رحلة Falcons ${item.n}` : `Falcons journey ${item.n}`} loading={i < 6 ? "eager" : "lazy"}/><figcaption><small>{item.n}</small><strong>{lang === "ar" ? "من الرحلة" : "From the journey"}</strong></figcaption></figure>)}
+            <div className="media-row media-row-right">
+              <div className="media-track">
+                {[...NEW_GALLERY, ...NEW_GALLERY].map((item, i) => <figure className="media-tile" key={`top-${item.src}-${i}`}><img src={item.src} alt={lang === "ar" ? "صورة من رحلة Falcons" : "Falcons journey"} loading={i < 6 ? "eager" : "lazy"}/></figure>)}
+              </div>
+            </div>
+            <div className="media-row media-row-left">
+              <div className="media-track">
+                {[...NEW_GALLERY.slice().reverse(), ...NEW_GALLERY.slice().reverse()].map((item, i) => <figure className="media-tile" key={`bottom-${item.src}-${i}`}><img src={item.src} alt={lang === "ar" ? "صورة من رحلة Falcons" : "Falcons journey"} loading={i < 6 ? "eager" : "lazy"}/></figure>)}
+              </div>
             </div>
           </div>
         </section>
@@ -471,7 +468,7 @@ function App() {
         <div className="footer-main"><div className="footer-brand"><span className="brand-mark">M</span><div><b>MAHMOUD MAGDY</b><small>{copy.footerRole}</small></div></div><p>{copy.footerText}</p></div>
         <div className="footer-links">{navItems.slice(0,7).map(([label,id]) => <button key={id} onClick={() => go(id)}>{label}</button>)}</div>
         <div className="footer-contact"><a href={FALCONS} target="_blank" rel="noreferrer">Falcons Organization ↗</a></div>
-        <div className="copyright"><span>© 2026 Mahmoud Magdy. All Rights Reserved.</span><span>{copy.developed} <a className="developer-link" href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noreferrer"><b>Eng. Youssef Adel</b></a></span></div>
+        <div className="copyright"><span>© 2026 Mahmoud Magdy. All Rights Reserved.</span><span>{copy.developed} <a className="developer-link" href={`https://wa.me/${DEV_WHATSAPP}`} target="_blank" rel="noreferrer"><b>Eng. Youssef Adel</b></a></span></div>
       </footer>
     </div>
   );
